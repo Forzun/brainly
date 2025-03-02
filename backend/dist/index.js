@@ -18,8 +18,10 @@ const db_1 = require("./db/db");
 const dotenv_1 = __importDefault(require("dotenv"));
 const auth_1 = require("./middleware/auth");
 const hash_1 = require("./utils/hash");
+const cors_1 = __importDefault(require("cors"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
+app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 const JWT_SECRET = "secret";
 app.post("/api/v1/signup", (req, res) => __awaiter(void 0, void 0, void 0, function* () {

@@ -4,9 +4,12 @@ import { ContentModel, LinkModel, UserModel } from "./db/db";
 import dotenv from 'dotenv';
 import { userMiddleware } from "./middleware/auth";
 import { random } from "./utils/hash";
-dotenv.config();
+import cors from "cors"
 
+dotenv.config();
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 const JWT_SECRET = "secret";
 
