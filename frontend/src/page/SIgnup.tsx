@@ -25,7 +25,7 @@ const Signup = () => {
         if(response.status === 200){ 
           setSkeletion(false);
             setTimeout(() => { 
-              navigate("/dashboard")
+              navigate("/signin")
             }, 3000)
         }
       }).catch((error) => { 

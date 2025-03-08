@@ -16,6 +16,8 @@ import { Avatar } from "./ui/avatar";
 
 export function LoginForm({
   className,
+  setData,
+  submitHandler,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
   return (
@@ -29,7 +31,7 @@ export function LoginForm({
       <div className="grid gap-6">
         <div className="grid gap-2">
           <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="m@example.com" required />
+          <Input onChange={(e) => setData((prv) => ({...prv , username:e.target.value})) } id="email" type="email" placeholder="m@example.com" />
         </div>
         <div className="grid gap-2">
           <div className="flex items-center">
@@ -41,9 +43,9 @@ export function LoginForm({
               Forgot your password?
             </a>
           </div>
-          <Input id="password" type="password" />
+          <Input onChange={(e) => setData((prev) => ({...prev , password:e.target.value})) } id="password" type="password" />
         </div>
-        <Button type="submit" className="w-full">
+        <Button onClick={submitHandler} type="submit" className="w-full cursor-pointer">
           Login
         </Button>
         <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
@@ -52,7 +54,7 @@ export function LoginForm({
           </span>
         </div>
         <Drawer>
-          <DrawerTrigger>
+          <DrawerTrigger asChild>
           <Button variant="outline" className="w-full">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
