@@ -1,12 +1,15 @@
 import { AppSidebar } from "./app-sidebar"
+import { SidebarProvider, SidebarTrigger } from "./ui/sidebar"
 
 const Sidebar = ({}) => {
-
     
   return (
-    <div className='w-1/6 '>
-        <AppSidebar />
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger />
+      </main>
+    </SidebarProvider>
   )
 }
 

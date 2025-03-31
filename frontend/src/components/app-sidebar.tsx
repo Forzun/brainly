@@ -9,9 +9,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarProvider,
 } from "@/components/ui/sidebar"
-import Layout from "./layout"
 
 // Menu items.
 const items = [
@@ -44,8 +42,7 @@ const items = [
 
 export function AppSidebar() {
   return (
-    <SidebarProvider>
-            <Sidebar>
+    <Sidebar>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
@@ -66,6 +63,5 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-    </SidebarProvider>
   )
 }
