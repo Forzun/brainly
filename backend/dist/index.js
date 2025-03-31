@@ -40,9 +40,14 @@ app.post("/api/v1/signup", (req, res) => __awaiter(void 0, void 0, void 0, funct
         password: password,
     });
     if (user) {
+        const token = yield jsonwebtoken_1.default.sign({
+            id: user._id,
+            username: user.username,
+        }, JWT_SECRET);
         res.status(200).json({
             message: "User created successfully",
             user: user,
+            token: token,
         });
         return;
     }

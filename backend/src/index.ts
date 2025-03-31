@@ -1,4 +1,4 @@
-import express, { response } from "express"; 
+import express from "express"; 
 import jwt from "jsonwebtoken"
 import { ContentModel, LinkModel, UserModel } from "./db/db";
 import dotenv from 'dotenv';
@@ -33,9 +33,16 @@ app.post("/api/v1/signup", async(req ,res) => {
     })
     
     if(user){ 
+
+        const token = await jwt.sign({ 
+            id: user._id, 
+            username: user.username,
+        }, JWT_SECRET)
+
         res.status(200).json({ 
             message:"User created successfully", 
             user: user,
+            token: token,
         })
         return;
     }else{ 

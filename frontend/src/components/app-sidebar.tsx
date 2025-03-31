@@ -11,6 +11,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/components/ui/sidebar"
+import Layout from "./layout"
 
 // Menu items.
 const items = [
